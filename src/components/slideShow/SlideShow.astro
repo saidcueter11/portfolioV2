@@ -1,0 +1,14 @@
+---
+import SlideshowClient from './SlideShowContainer'
+const slides = [
+  { id: 1, img: '/serflow1.webp', alt: 'Slide 1' },
+  { id: 2, img: '/serflow2.webp', alt: 'Slide 2' },
+  { id: 3, img: '/serflow3.webp', alt: 'Slide 3' },
+]
+---
+
+<div
+  class="relative w-full md:w-4/5 max-w-3xl mx-auto mt-8 overflow-hidden rounded-xl prose prose-img:m-0"
+>
+  <SlideshowClient client:load {slides} />
+</div>

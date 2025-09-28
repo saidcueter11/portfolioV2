@@ -1,0 +1,56 @@
+---
+import { ContactForm } from '../components/contact/contactForm'
+import { GitHubIcon } from '../components/icons/GithubIcon'
+import { InstagramIcon } from '../components/icons/InstagramIcon'
+import { LinkedInIcon } from '../components/icons/LinkedInIcon'
+import { LocationIcon } from '../components/icons/LocationIcon'
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout headerTitle="Contact">
+  <main class="w-full h-full flex flex-col items-center mx-auto">
+    <section class="mt-8 w-full font-bricolage max-w-3xl">
+      {/* Heading */}
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-semibold text-dark-green mb-2">Contact Me</h2>
+        <p class="text-ligth-green">
+          Interested in working together? I’d love to hear about opportunities.
+        </p>
+      </div>
+
+      {/* Grid Layout */}
+      <div class="grid md:grid-cols-2 gap-8">
+        {/* Contact Form */}
+        <ContactForm />
+
+        {/* Contact Info */}
+        <div class="flex flex-col gap-8 space-y-6 text-gray-200">
+          <div>
+            <h3 class="text-lg font-semibold text-dark-green">Email</h3>
+            <p class="text-ligth-green">saidcueter11@gmail.com</p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-dark-green">Location</h3>
+            <p class="text-ligth-green flex gap-2">
+              <span><LocationIcon /></span> Cartagena, Colombia
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-dark-green">Social</h3>
+            <div class="flex space-x-10 mt-2">
+              <GitHubIcon
+                href="https://github.com/saidcueter11"
+                fill="fill-dark-green"
+                hoverFill="fill-accent"
+              />
+              <LinkedInIcon />
+              <InstagramIcon />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

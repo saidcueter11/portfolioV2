@@ -1,0 +1,44 @@
+---
+import { LocationIcon } from '../icons/LocationIcon'
+
+interface Props {
+  period: string
+  role: string
+  company: string
+  location: string
+  description: string[]
+  technologies: string[]
+}
+
+const { period, role, company, location, description, technologies } =
+  Astro.props
+---
+
+<div class="font-bricolage flex justify-between w-full flex-wrap">
+  <header class="text-ligth-green font-semibold">{period}</header>
+
+  <div class="max-w-md w-full">
+    <h3 class="text-dark-green font-semibold text-lg">
+      {role}
+    </h3>
+    <div class="text-dark-green font-medium text-sm flex items-center gap-8">
+      <span class="">{company}</span>
+      <p class="flex gap-2 items-center">
+        <span><LocationIcon /></span>{location}
+      </p>
+    </div>
+    <ul class="list-disc text-sm text-ligth-green ml-6">
+      {description.map((text) => <li>{text}</li>)}
+    </ul>
+
+    <div class="flex flex-wrap ml-10 mt-4 gap-2 text-xs font-semibold">
+      {
+        technologies.map((tech) => (
+          <span class="bg-accent text-dark-green px-2 py-0.5 rounded hover:rotate-4 shadow transition-all cursor-default">
+            {tech}
+          </span>
+        ))
+      }
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout>
+  <main
+    class="font-bricolage w-full h-full flex flex-col items-center gap-4 sm:gap-8"
+  >
+    <div class="flex flex-col items-center justify-center gap-2">
+      <img
+        transition:name="avatar"
+        class="size-34 rounded-full border-4 border-dark-green animate-float"
+        src="/avatar.jpeg"
+        alt=""
+      />
+
+      <h3 class="font-semibold text-2xl text-ligth-green">
+        Hey! I'm <span transition:name="name">Said Cueter</span>
+      </h3>
+    </div>
+
+    <div class="text-center flex flex-col gap-3">
+      <p class="text-4xl text-dark-green font-bold" transition:name="position">
+        Front-end Web Developer
+      </p>
+      <p class="text-ligth-green font-medium">
+        Passionate about clean code and smooth user experiences.
+      </p>
+      <p class="text-ligth-green font-medium">
+        From landing pages to full web apps, I turn ideas into fast, responsive
+        websites.
+      </p>
+    </div>
+
+    <a
+      href="/projects"
+      class="relative overflow-hidden rounded-full bg-accent text-dark-green px-5 py-2.5 transition-all duration-300 hover:ring-2 hover:ring-accent hover:ring-offset-2 font-semibold"
+      ><span class="relative">Check out my projects</span>
+    </a>
+  </main>
+</Layout>

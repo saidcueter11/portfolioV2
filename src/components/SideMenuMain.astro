@@ -1,0 +1,17 @@
+---
+interface Props {
+  orientation: string
+}
+
+const { orientation } = Astro.props
+---
+
+<aside
+  class={`fixed bottom-0 ${orientation === 'right' ? 'right-20' : 'left-20'} hidden lg:block`}
+>
+  <ul
+    class="after:w-0.5 after:h-40 after:block after:bg-dark-green flex flex-col items-center justify-center gap-6"
+  >
+    <slot />
+  </ul>
+</aside>

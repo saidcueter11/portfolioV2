@@ -1,0 +1,61 @@
+---
+import { ClientRouter } from 'astro:transitions'
+import './src/styles/global.css'
+import { NavBar } from '../components/header/NavBar'
+import { InstagramIcon } from '../components/icons/InstagramIcon'
+import { GitHubIcon } from '../components/icons/GithubIcon'
+import { LinkedInIcon } from '../components/icons/LinkedInIcon'
+import AvatarHeader from '../components/header/AvatarHeader.astro'
+import SideMenuMain from '../components/SideMenuMain.astro'
+
+interface Props {
+  headerTitle?: string
+}
+
+const currentPath = Astro.url.pathname
+const { headerTitle } = Astro.props
+---
+
+<!doctype html>
+<html
+  lang="en"
+  class="bg-gradient-to-b from-ligth-accent via-ligth-accent/70 to-ligth-accent/40"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Said Cueter</title>
+    <ClientRouter />
+  </head>
+  <body class="relative min-h-dvh w-full flex flex-col">
+    <NavBar client:visible currentPath={currentPath} headerTitle={headerTitle}>
+      <AvatarHeader />
+    </NavBar>
+    <div class="flex flex-col p-6 my-18">
+      <SideMenuMain orientation="left">
+        <li>
+          <GitHubIcon
+            href="https://github.com/saidcueter11"
+            fill="fill-dark-green"
+            hoverFill="fill-accent"
+          />
+        </li>
+        <li>
+          <InstagramIcon />
+        </li>
+        <li>
+          <LinkedInIcon />
+        </li>
+      </SideMenuMain>
+      <slot />
+      <SideMenuMain orientation="right">
+        <a
+          class="[writing-mode:vertical-lr] cursor-pointer font-bricolage tracking-widest text-sm text-dark-green hover:text-accent transition-all hover:scale-110"
+          >saidcueter11@gmail.com</a
+        >
+      </SideMenuMain>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+---
+import { GitHubIcon } from '../icons/GithubIcon'
+import { RedirectLinkIcon } from '../icons/RedirectLink'
+
+interface Props {
+  title: string
+  description: string
+  technologies: string[]
+  projectImg: string
+  projectLink: string
+  projectGithubLink: string
+}
+
+const {
+  title,
+  description,
+  technologies,
+  projectImg,
+  projectLink,
+  projectGithubLink,
+} = Astro.props
+---
+
+<div
+  class="font-bricolage max-w-md w-full p-5 flex flex-col gap-4 hover:-translate-y-3 rounded-2xl bg-white/10
+               backdrop-blur-sm transition-all duration-300 ease-in-out
+               hover:backdrop-blur-lg hover:bg-white/20 hover:shadow-xl hover:scale-105"
+>
+  <!-- Header -->
+  <div class="flex items-center gap-3 justify-center">
+    <h3 class="text-xl font-semibold text-dark-green">{title}</h3>
+    <GitHubIcon
+      href={projectGithubLink}
+      fill="fill-dark-green"
+      hoverFill="fill-accent"
+    />
+  </div>
+
+  <!-- Image Preview with hover overlay -->
+  <div class="relative group rounded-lg overflow-hidden shadow">
+    <a
+      href={projectLink}
+      target="_blank"
+      class="block aspect-video w-full relative"
+    >
+      <!-- Image -->
+      <img
+        src={projectImg}
+        alt={`${title} preview`}
+        class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+      />
+
+      <!-- Overlay -->
+      <div
+        class="absolute inset-0 bg-dark-green/40 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition duration-300"
+      >
+        <div
+          class="text-ligth-accent font-semibold items-center text-sm bg-dark-green rounded-full px-6 py-2 flex gap-2 transition-all"
+        >
+          <span class="group-hover:text-accent">View project</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#000000"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="size-6 stroke-2 stroke-ligth-accent group-hover:stroke-accent"
+          >
+            <path
+              d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6"
+            ></path>
+            <path d="M11 13l9 -9"></path>
+            <path d="M15 4h5v5"></path>
+          </svg>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- Description -->
+  <p class="text-sm text-ligth-green text-center">
+    {description}
+  </p>
+
+  <!-- Tags -->
+  <div class="flex flex-wrap justify-center gap-2 text-xs font-semibold">
+    {
+      technologies.map((tech) => (
+        <span class="bg-accent text-dark-green px-2 py-0.5 rounded hover:rotate-4 shadow transition-all cursor-default">
+          {tech}
+        </span>
+      ))
+    }
+  </div>
+</div>

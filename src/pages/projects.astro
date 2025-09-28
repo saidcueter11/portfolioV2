@@ -1,0 +1,51 @@
+---
+import ProjectContainer from '../components/project/ProjectContainer.astro'
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout headerTitle="Projects">
+  <main class="w-full h-full flex flex-col items-center mx-auto">
+    <section class="grid lg:grid-cols-2 gap-6 mt-8 max-w-3xl">
+      <ProjectContainer
+        title="Connet - Social App"
+        description="Mobile-first UI for a social platform with login, chat, and friend system."
+        technologies={[
+          'Next Js',
+          'React Js',
+          'Tailwind CSS',
+          'TypeScript',
+          'Firebase',
+        ]}
+        projectImg="/connetApp.png"
+        projectLink="https://connet-cyan.vercel.app/"
+        projectGithubLink="https://github.com/saidcueter11/connet"
+      />
+      <ProjectContainer
+        title="Shopi App"
+        description="Mobile-first interface for a shopping app with product browsing, cart, and checkout flow."
+        technologies={['React Js', 'Tailwind CSS', 'TypeScript']}
+        projectImg="/shopi.png"
+        projectLink="https://shopiscueter.netlify.app/SignIn"
+        projectGithubLink="https://github.com/saidcueter11/shopi"
+      />
+
+      <ProjectContainer
+        title="To-Do Machine App"
+        description="Mobile UI for a todo app with task creation, editing, and filtering features."
+        technologies={['React Js', 'Tailwind CSS', 'TypeScript']}
+        projectImg="/to-doMachine.png"
+        projectLink="https://saidcueter11.github.io/todo-machine-react-router/"
+        projectGithubLink="https://github.com/saidcueter11/todo-machine-react-router"
+      />
+
+      <ProjectContainer
+        title="Weather App"
+        description="Mobile UI for a weather app with location-based forecasts, conditions, and temperature data."
+        technologies={['React Js', 'Tailwind CSS', 'TypeScript']}
+        projectImg="weatherApp.png"
+        projectLink="https://saidcueter11.github.io/WeatherApp/"
+        projectGithubLink="https://github.com/saidcueter11/WeatherApp"
+      />
+    </section>
+  </main>
+</Layout>

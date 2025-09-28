@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
+@import "tailwindcss";
+@plugin '@tailwindcss/typography';
+
+@theme {
+  --color-ligth-accent: #FFF1CA;
+  --color-accent: #FFB823;
+  --color-ligth-green: #708A58;
+  --color-dark-green: #2D4F2B;
+
+  --font-bricolage: "Bricolage Grotesque", sans-serif;
+
+
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-shimmer: shimmer 2.5s linear infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: skew(-12deg) translateX(-100%);
+  }
+
+  100% {
+    transform: skew(-12deg) translateX(100%);
+  }
+}

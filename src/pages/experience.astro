@@ -1,0 +1,36 @@
+---
+import ExperienceContainer from '../components/experience/experienceContainer.astro'
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout headerTitle="Expericence">
+  <main class="w-full h-full flex flex-col items-center mx-auto">
+    <section class="grid gap-6 mt-8 max-w-3xl w-full">
+      <ExperienceContainer
+        period="July 2024 - Present"
+        company="Anthology Inc"
+        location="Colombia"
+        role="Software Engineer, Associate I"
+        description={[
+          'Develop and maintain web applications using React Js and TypeScript to build responsive, scalable, and user-friendly interfaces.',
+          'Delivered 4 responsive, scalable user interfaces by integrating designs from UI/UX teams at Anthology Inc.',
+          'Resolved 10+ software issues to improve quality and user experience for Anthology Inc applications.',
+        ]}
+        technologies={['React Js', 'Angular', 'Redux', 'TypeScript', 'MUI']}
+      />
+
+      <ExperienceContainer
+        period="December 2023 - July 2024"
+        role="Software Developer"
+        company="65 Square"
+        location="Canada"
+        description={[
+          'Develop scalable and responsive user interfaces using React JS.',
+          'Update and improve existing software to enhance functionality and adapt to new requirements.',
+          'Updated and enhanced software functionality across 2 projects to meet evolving business requirements.',
+        ]}
+        technologies={['React Js', 'TypeScript', 'HTML', 'Bootstrap']}
+      />
+    </section>
+  </main>
+</Layout>

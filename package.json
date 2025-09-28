@@ -1,0 +1,25 @@
+{
+  "name": "portfoliov2",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/preact": "^4.1.1",
+    "@tailwindcss/vite": "^4.1.11",
+    "astro": "^5.14.0",
+    "preact": "^10.26.9",
+    "resend": "^6.1.0",
+    "tailwindcss": "^4.1.11"
+  },
+  "devDependencies": {
+    "@netlify/edge-functions": "^2.18.1",
+    "@tailwindcss/typography": "^0.5.16",
+    "netlify-cli": "^23.8.0",
+    "vite-plugin-devtools-json": "^0.2.1"
+  }
+}
