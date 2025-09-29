@@ -26,9 +26,42 @@ const { headerTitle } = Astro.props
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+
     <title>Said Cueter</title>
+
+    <!-- Primary Meta -->
+    <meta name="title" content="Said Cueter" />
+    <meta
+      name="description"
+      content="Frontend developer portfolio of Said Cueter. Explore my projects, skills, and contact information."
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://scueter.com/" />
+    <meta property="og:title" content="Said Cueter" />
+    <meta
+      property="og:description"
+      content="Frontend developer portfolio of Said Cueter. Explore my projects, skills, and contact information."
+    />
+    <meta property="og:image" content="https://scueter.com/thumbnail.jpeg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://scueter.com/" />
+    <meta property="twitter:title" content="Said Cueter" />
+    <meta
+      property="twitter:description"
+      content="Frontend developer portfolio of Said Cueter. Explore my projects, skills, and contact information."
+    />
+    <meta
+      property="twitter:image"
+      content="https://scueter.com/thumbnail.jpeg"
+    />
+
     <ClientRouter />
   </head>
+
   <body class="relative min-h-dvh w-full flex flex-col">
     <NavBar client:visible currentPath={currentPath} headerTitle={headerTitle}>
       <AvatarHeader />
