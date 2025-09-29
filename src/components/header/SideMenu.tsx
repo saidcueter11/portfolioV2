@@ -1,5 +1,6 @@
 import type React from "preact/compat"
 import { CloseIcon } from "../icons/CloseIcon"
+import { RedirectLinkIcon } from "../icons/RedirectLink"
 
 interface SideMenuProps {
   toggleMenu: boolean
@@ -29,6 +30,7 @@ export const SideMenu: React.FC<SideMenuProps> = ({ toggleMenu, setToggleMenu })
           <a href='/projects' onClick={() => setToggleMenu(false)}>Projects</a>
           <a href="/experience" onClick={() => setToggleMenu(false)}>Experience</a>
           <a href="/contact" onClick={() => setToggleMenu(false)}>Contact</a>
+          <a href="/SaidCueterResume.pdf" target='_blank' className='flex gap-2 mt-8 rounded-full bg-accent px-6 py-1'>Resume<span><RedirectLinkIcon stroke="stroke-dark-green" /></span></a>
         </div>
       </div>
     </aside>

@@ -43,9 +43,11 @@ export const NavBar = ({ currentPath, children, headerTitle }: { currentPath: st
           <NavBarItem currentPath={currentPath} href="/experience" text="Experience" />
           <NavBarItem currentPath={currentPath} href="/contact" text="Contact" />
 
-          <li class="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-accent px-5 py-2.5 font-medium text-dark-green cursor-pointer">
-            <span>Resume</span><div class="w-0 translate-x-[100%] pl-0 opacity-0 transition-all duration-300 group-hover:w-5 group-hover:translate-x-0 group-hover:pl-1 group-hover:opacity-100"><RightArrowIcon /></div>
-          </li>
+          <a href="/SaidCueterResume.pdf" target='_blank'>
+            <li class="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-accent px-5 py-2.5 font-medium text-dark-green cursor-pointer">
+              <span>Resume</span><div class="w-0 translate-x-[100%] pl-0 opacity-0 transition-all duration-300 group-hover:w-5 group-hover:translate-x-0 group-hover:pl-1 group-hover:opacity-100"><RightArrowIcon /></div>
+            </li>
+          </a>
         </ul>
 
         <button onClick={() => setToggleMenu(prev => !prev)} class='sm:hidden'>

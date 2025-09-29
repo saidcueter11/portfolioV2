@@ -1,4 +1,4 @@
-export const RedirectLinkIcon = () => <svg
+export const RedirectLinkIcon = ({ stroke = 'stroke-ligth-accent hover:stroke-accent' }: { stroke?: string }) => <svg
   xmlns="http://www.w3.org/2000/svg"
   width="32"
   height="32"
@@ -8,7 +8,7 @@ export const RedirectLinkIcon = () => <svg
   stroke-width="1"
   stroke-linecap="round"
   stroke-linejoin="round"
-  class="size-6 stroke-2 stroke-ligth-accent hover:stroke-accent"
+  class={`size-6 stroke-2 ${stroke}`}
 >
   <path
     d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6"
