@@ -12,7 +12,9 @@ import Layout from '../layouts/Layout.astro'
     <section class="mt-8 w-full font-bricolage max-w-3xl">
       {/* Heading */}
       <div class="text-center mb-10">
-        <h2 class="text-3xl font-semibold text-dark-green mb-2">Contact Me</h2>
+        <h2 class="text-3xl font-semibold text-dark-green mb-2">
+          Get in touch
+        </h2>
         <p class="text-ligth-green">
           Interested in working together? I’d love to hear about opportunities.
         </p>
@@ -21,10 +23,10 @@ import Layout from '../layouts/Layout.astro'
       {/* Grid Layout */}
       <div class="grid md:grid-cols-2 gap-8">
         {/* Contact Form */}
-        <ContactForm />
+        <ContactForm client:load />
 
         {/* Contact Info */}
-        <div class="flex flex-col gap-8 space-y-6 text-gray-200">
+        <div class="flex flex-col gap-8 text-gray-200">
           <div>
             <h3 class="text-lg font-semibold text-dark-green">Email</h3>
             <p class="text-ligth-green">saidcueter11@gmail.com</p>
@@ -39,7 +41,7 @@ import Layout from '../layouts/Layout.astro'
 
           <div>
             <h3 class="text-lg font-semibold text-dark-green">Social</h3>
-            <div class="flex space-x-10 mt-2">
+            <div class="flex space-x-6 mt-2">
               <GitHubIcon
                 href="https://github.com/saidcueter11"
                 fill="fill-dark-green"
