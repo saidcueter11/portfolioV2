@@ -10,54 +10,112 @@ import SideMenuMain from '../components/SideMenuMain.astro'
 
 interface Props {
   headerTitle?: string
+  seoTitle?: string
+  seoDescription?: string
+  seoImage?: string
+  type?: 'website' | 'article'
 }
 
+const SITE = 'https://scueter.com'
+const DEFAULT_TITLE = 'Said Cueter — Frontend Developer'
+const DEFAULT_DESCRIPTION =
+  'Frontend developer specializing in React, Astro, and TypeScript. Explore my projects, experience, and get in touch.'
+const DEFAULT_IMAGE = `${SITE}/thumbnail.jpeg`
+
 const currentPath = Astro.url.pathname
-const { headerTitle } = Astro.props
+const {
+  headerTitle = '',
+  seoTitle = DEFAULT_TITLE,
+  seoDescription = DEFAULT_DESCRIPTION,
+  seoImage = DEFAULT_IMAGE,
+  type = 'website',
+} = Astro.props
+
+const canonicalURL = new URL(Astro.url.pathname, SITE).href
 ---
 
 <!doctype html>
 <html
   lang="en"
-  class="bg-gradient-to-b from-ligth-accent via-ligth-accent/70 to-ligth-accent/40"
+  class="bg-gradient-to-b from-ligth-accent via-[#d4d6da] to-[#cfd2d7]"
 >
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalURL} />
 
-    <title>Said Cueter</title>
+    <title>{seoTitle}</title>
 
     <!-- Primary Meta -->
-    <meta name="title" content="Said Cueter" />
+    <meta name="title" content={seoTitle} />
+    <meta name="description" content={seoDescription} />
+    <meta name="author" content="Said Cueter" />
     <meta
-      name="description"
-      content="Frontend developer portfolio of Said Cueter. Explore my projects, skills, and contact information."
+      name="keywords"
+      content="Said Cueter, Frontend Developer, React, Astro, TypeScript, TailwindCSS, Web Developer, Portfolio"
     />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://scueter.com/" />
-    <meta property="og:title" content="Said Cueter" />
-    <meta
-      property="og:description"
-      content="Frontend developer portfolio of Said Cueter. Explore my projects, skills, and contact information."
-    />
-    <meta property="og:image" content="https://scueter.com/thumbnail.jpeg" />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={seoTitle} />
+    <meta property="og:description" content={seoDescription} />
+    <meta property="og:image" content={seoImage} />
+    <meta property="og:site_name" content="Said Cueter" />
+    <meta property="og:locale" content="en_US" />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://scueter.com/" />
-    <meta property="twitter:title" content="Said Cueter" />
-    <meta
-      property="twitter:description"
-      content="Frontend developer portfolio of Said Cueter. Explore my projects, skills, and contact information."
-    />
-    <meta
-      property="twitter:image"
-      content="https://scueter.com/thumbnail.jpeg"
-    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={seoTitle} />
+    <meta name="twitter:description" content={seoDescription} />
+    <meta name="twitter:image" content={seoImage} />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": `${SITE}/#website`,
+          url: SITE,
+          name: "Said Cueter",
+          description: DEFAULT_DESCRIPTION,
+          inLanguage: "en-US",
+        },
+        {
+          "@type": "Person",
+          "@id": `${SITE}/#person`,
+          name: "Said Cueter",
+          url: SITE,
+          jobTitle: "Frontend Developer",
+          sameAs: [
+            "https://github.com/saidcueter11",
+            "https://www.linkedin.com/in/said-cueter/",
+          ],
+          knowsAbout: [
+            "React",
+            "Astro",
+            "TypeScript",
+            "TailwindCSS",
+            "Frontend Development",
+          ],
+        },
+        {
+          "@type": "WebPage",
+          "@id": canonicalURL,
+          url: canonicalURL,
+          name: seoTitle,
+          description: seoDescription,
+          isPartOf: { "@id": `${SITE}/#website` },
+          about: { "@id": `${SITE}/#person` },
+          inLanguage: "en-US",
+        },
+      ],
+    })} />
 
     <ClientRouter />
   </head>
@@ -66,7 +124,7 @@ const { headerTitle } = Astro.props
     <NavBar client:visible currentPath={currentPath} headerTitle={headerTitle}>
       <AvatarHeader />
     </NavBar>
-    <div class="flex flex-col p-6 my-18">
+    <div class="flex flex-col p-6 my-18 max-w-7xl mx-auto w-full">
       <SideMenuMain orientation="left">
         <li>
           <GitHubIcon
@@ -85,7 +143,8 @@ const { headerTitle } = Astro.props
       <slot />
       <SideMenuMain orientation="right">
         <a
-          class="[writing-mode:vertical-lr] cursor-pointer font-bricolage tracking-widest text-sm text-dark-green hover:text-accent transition-all hover:scale-110"
+          href="mailto:saidcueter11@gmail.com"
+          class="[writing-mode:vertical-lr] cursor-pointer font-bricolage tracking-widest text-sm text-dark-green hover:text-accent transition-all duration-300 hover:-translate-y-1"
           >saidcueter11@gmail.com</a
         >
       </SideMenuMain>

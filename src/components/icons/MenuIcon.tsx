@@ -9,7 +9,7 @@ export const MenuIcon = () => (
     stroke-width="2"
     stroke-linecap="round"
     stroke-linejoin="round"
-    class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep stroke-accent"
+    class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep stroke-dark-green"
   >
     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
     <path d="M4 6h16"></path>

@@ -3,9 +3,20 @@ import ExperienceContainer from '../components/experience/experienceContainer.as
 import Layout from '../layouts/Layout.astro'
 ---
 
-<Layout headerTitle="Expericence">
+<Layout
+  headerTitle="Experience"
+  seoTitle="Experience — Said Cueter | Frontend Developer"
+  seoDescription="My professional experience building web applications and user interfaces at companies like Anthology Inc and 65 Square."
+>
   <main class="w-full h-full flex flex-col items-center mx-auto">
-    <section class="grid gap-6 mt-8 max-w-3xl w-full">
+    <div class="text-center mb-6 animate-fade-in-up font-bricolage">
+      <h2 class="text-3xl font-bold text-dark-green mb-2">Experience</h2>
+      <div class="mx-auto mb-3 h-1 w-16 rounded-full bg-accent/70"></div>
+      <p class="text-ligth-green max-w-md mx-auto">
+        My professional journey building web applications and user interfaces.
+      </p>
+    </div>
+    <section class="mt-4 max-w-3xl w-full space-y-6">
       <ExperienceContainer
         period="July 2024 - Present"
         company="Anthology Inc"

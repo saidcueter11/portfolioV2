@@ -7,41 +7,51 @@ import { LocationIcon } from '../components/icons/LocationIcon'
 import Layout from '../layouts/Layout.astro'
 ---
 
-<Layout headerTitle="Contact">
+<Layout
+  headerTitle="Contact"
+  seoTitle="Contact — Said Cueter | Get in Touch"
+  seoDescription="Have a project in mind or want to collaborate? Reach out to Said Cueter — frontend developer based in Bogotá, Colombia."
+>
   <main class="w-full h-full flex flex-col items-center mx-auto">
-    <section class="mt-8 w-full font-bricolage max-w-3xl">
+    <section class="mt-4 w-full font-bricolage max-w-3xl">
       {/* Heading */}
-      <div class="text-center mb-10">
-        <h2 class="text-3xl font-semibold text-dark-green mb-2">
+      <div class="text-center mb-10 animate-fade-in-up">
+        <h2 class="text-3xl font-bold text-dark-green mb-2">
           Get in touch
         </h2>
+        <div class="mx-auto mb-3 h-1 w-16 rounded-full bg-accent/70"></div>
         <p class="text-ligth-green">
           Interested in working together? I’d love to hear about opportunities.
         </p>
       </div>
 
       {/* Grid Layout */}
-      <div class="grid md:grid-cols-2 gap-8">
+      <div class="grid md:grid-cols-2 gap-10">
         {/* Contact Form */}
         <ContactForm client:load />
 
         {/* Contact Info */}
-        <div class="flex flex-col gap-8 text-gray-200">
-          <div>
-            <h3 class="text-lg font-semibold text-dark-green">Email</h3>
-            <p class="text-ligth-green">saidcueter11@gmail.com</p>
+        <div class="flex flex-col gap-6">
+          <div class="relative overflow-hidden rounded-2xl border border-dark-green/15 bg-white/20 p-6 backdrop-blur-sm transition-all duration-300 hover:bg-white/30 hover:shadow-lg hover:shadow-dark-green/10 sm:p-7">
+            <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/65 to-transparent"></div>
+            <h3 class="mb-1 text-lg font-bold text-dark-green">Email</h3>
+            <a href="mailto:saidcueter11@gmail.com" class="text-ligth-green transition-colors duration-200 hover:text-accent-hover">
+              saidcueter11@gmail.com
+            </a>
           </div>
 
-          <div>
-            <h3 class="text-lg font-semibold text-dark-green">Location</h3>
-            <p class="text-ligth-green flex gap-2">
+          <div class="relative overflow-hidden rounded-2xl border border-dark-green/15 bg-white/20 p-6 backdrop-blur-sm transition-all duration-300 hover:bg-white/30 hover:shadow-lg hover:shadow-dark-green/10 sm:p-7">
+            <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/65 to-transparent"></div>
+            <h3 class="mb-1 text-lg font-bold text-dark-green">Location</h3>
+            <p class="flex items-center gap-2 text-ligth-green">
               <span><LocationIcon /></span> Cartagena, Colombia
             </p>
           </div>
 
-          <div>
-            <h3 class="text-lg font-semibold text-dark-green">Social</h3>
-            <div class="flex space-x-6 mt-2">
+          <div class="relative overflow-hidden rounded-2xl border border-dark-green/15 bg-white/20 p-6 backdrop-blur-sm transition-all duration-300 hover:bg-white/30 hover:shadow-lg hover:shadow-dark-green/10 sm:p-7">
+            <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/65 to-transparent"></div>
+            <h3 class="mb-2 text-lg font-bold text-dark-green">Social</h3>
+            <div class="flex space-x-6">
               <GitHubIcon
                 href="https://github.com/saidcueter11"
                 fill="fill-dark-green"

@@ -1,41 +1,117 @@
 ---
 import Layout from '../layouts/Layout.astro'
+
+const highlights = [
+  'Specialized in React, Astro, and modern front-end ecosystems',
+  'Strong with TypeScript, TailwindCSS and responsive design',
+  'Exploring performance optimization and serverless functions',
+]
+
+const stack = ['React', 'Astro', 'TypeScript', 'Supabase']
 ---
 
-<Layout>
+<Layout
+  seoTitle="Said Cueter — Frontend Developer | React, Astro & TypeScript"
+  seoDescription="I'm Said Cueter, a frontend developer specializing in React, Astro, and TypeScript. Building performant, accessible web experiences."
+>
   <main
-    class="font-bricolage w-full h-full flex flex-col items-center gap-4 sm:gap-8"
+    class="font-bricolage mx-auto grid min-h-[calc(100dvh-9rem)] w-full max-w-5xl items-center gap-6 py-4 sm:py-8 lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-4 xl:grid-cols-[minmax(0,1fr)_24rem]"
   >
-    <div class="flex flex-col items-center justify-center gap-2">
-      <img
-        transition:name="avatar"
-        class="size-34 rounded-full border-4 border-dark-green animate-float"
-        src="/avatar.jpeg"
-        alt=""
-      />
+    <section class="flex flex-col items-center text-center lg:items-start lg:text-left">
+      <div class="animate-fade-in-up">
+        <span class="inline-flex rounded-full border border-accent/35 bg-accent/12 px-4 py-1.5 text-sm font-semibold text-accent-hover">
+          Front-end developer · Colombia
+        </span>
+      </div>
 
-      <h3 class="font-semibold text-2xl text-ligth-green">
-        Hey! I'm <span transition:name="name">Said Cueter</span>
-      </h3>
-    </div>
+      <div class="mt-4 flex flex-col gap-3 animate-fade-in-up delay-100">
+        <h3 class="font-semibold text-xl text-ligth-green sm:text-2xl">
+          Hey! I'm <span class="text-accent-hover">Said Cueter</span>
+        </h3>
 
-    <div class="text-center flex flex-col gap-3">
-      <p class="text-4xl text-dark-green font-bold" transition:name="position">
-        Front-end Web Developer
-      </p>
-      <p class="text-ligth-green font-medium">
-        Passionate about clean code and smooth user experiences.
-      </p>
-      <p class="text-ligth-green font-medium">
-        From landing pages to full web apps, I turn ideas into fast, responsive
-        websites.
-      </p>
-    </div>
+        <h1 class="max-w-2xl text-4xl font-extrabold leading-none tracking-tight text-dark-green sm:text-5xl xl:text-6xl">
+          Front-end Web Developer
+        </h1>
+      </div>
 
-    <a
-      href="/projects"
-      class="relative overflow-hidden rounded-full bg-accent text-dark-green px-5 py-2.5 transition-all duration-300 hover:ring-2 hover:ring-accent hover:ring-offset-2 font-semibold"
-      ><span class="relative">Check out my projects</span>
-    </a>
+      <div class="mt-5 flex max-w-xl flex-col gap-3 animate-fade-in-up delay-200">
+        <p class="text-ligth-green font-medium text-base leading-relaxed sm:text-lg">
+          Passionate about clean code and smooth user experiences.
+        </p>
+        <p class="text-ligth-green font-medium text-base leading-relaxed sm:text-lg">
+          From landing pages to full web apps, I turn ideas into fast,
+          responsive websites.
+        </p>
+      </div>
+
+      <ul class="mt-5 grid max-w-2xl gap-3 text-left animate-fade-in-up delay-300">
+        {
+          highlights.map((item) => (
+            <li class="flex items-baseline gap-2 rounded-2xl border border-dark-green/10 bg-white/35 px-4 py-3 shadow-sm shadow-dark-green/5">
+              <span class="mt-1 size-2 shrink-0 rounded-full bg-accent"></span>
+              <span class="text-sm font-medium leading-relaxed text-ligth-green sm:text-base">
+                {item}
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="mt-5 flex flex-wrap justify-center gap-2 lg:justify-start animate-fade-in-up delay-400">
+        {
+          stack.map((item) => (
+            <span class="rounded-full border border-accent/30 bg-white/40 px-3 py-1.5 text-sm font-semibold text-dark-green shadow-sm shadow-dark-green/5">
+              {item}
+            </span>
+          ))
+        }
+      </div>
+
+      <div class="mt-7 flex flex-wrap justify-center gap-3 lg:justify-start animate-fade-in-up delay-500">
+        <a
+          href="/projects"
+          class="btn-shimmer rounded-full bg-accent px-7 py-3 text-base font-semibold text-ligth-accent transition-all duration-300 hover:ring-2 hover:ring-accent hover:ring-offset-2 hover:shadow-lg hover:shadow-accent/25"
+        >
+          <span class="relative z-10">Check out my projects</span>
+        </a>
+
+        <a
+          href="/contact"
+          class="rounded-full border border-dark-green/15 bg-white/40 px-7 py-3 text-base font-semibold text-dark-green transition-all duration-300 hover:bg-white/70 hover:shadow-md"
+        >
+          Contact me
+        </a>
+      </div>
+
+      <p class="mt-4 text-sm font-medium text-ligth-green animate-fade-in-up delay-600">
+        Open to collaborating on exciting projects.
+      </p>
+    </section>
+
+    <section class="flex items-center justify-center lg:justify-end lg:pl-2">
+      <div class="relative w-full max-w-[22rem] animate-fade-in-up delay-200 sm:max-w-sm">
+        <div class="absolute inset-0 translate-y-3 rounded-[2rem] bg-dark-green/8 blur-2xl"></div>
+
+        <div class="relative rounded-[2rem] border border-dark-green/15 bg-white/55 p-6 shadow-xl shadow-dark-green/10 backdrop-blur-sm sm:p-7">
+          <div class="flex flex-col items-center gap-4 text-center">
+            <img
+              class="size-32 rounded-full border-4 border-dark-green animate-float shadow-lg shadow-dark-green/20 sm:size-40"
+              src="/avatar.jpeg"
+              alt="Portrait of Said Cueter"
+            />
+
+            <div class="space-y-2">
+              <p class="text-xl font-bold text-dark-green sm:text-2xl">Building modern interfaces</p>
+              <p class="mx-auto max-w-xs text-sm leading-relaxed text-ligth-green sm:text-base">
+                Focused on interactive, accessible, and polished web applications.
+              </p>
+              <p class="mx-auto max-w-xs text-sm font-semibold text-accent-hover">
+                React · Astro · TypeScript · Supabase
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 </Layout>

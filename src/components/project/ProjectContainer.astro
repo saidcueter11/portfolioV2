@@ -1,5 +1,4 @@
 ---
-import { GitHubIcon } from '../icons/GithubIcon'
 import { RedirectLinkIcon } from '../icons/RedirectLink'
 
 interface Props {
@@ -21,79 +20,79 @@ const {
 } = Astro.props
 ---
 
-<div
-  class="font-bricolage max-w-md w-full p-5 flex flex-col gap-4 hover:-translate-y-3 rounded-2xl bg-white/10
-               backdrop-blur-sm transition-all duration-300 ease-in-out
-               hover:backdrop-blur-lg hover:bg-white/20 hover:shadow-xl hover:scale-105"
+<article
+  class="font-bricolage group relative flex h-full w-full max-w-md flex-col overflow-hidden rounded-2xl border border-dark-green/15 bg-white/20 backdrop-blur-sm transition-all duration-300 hover:bg-white/30 hover:shadow-lg hover:shadow-dark-green/10"
 >
-  <!-- Header -->
-  <div class="flex items-center gap-3 justify-center">
-    <h3 class="text-xl font-semibold text-dark-green">{title}</h3>
-    <GitHubIcon
-      href={projectGithubLink}
-      fill="fill-dark-green"
-      hoverFill="fill-accent"
+  <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/65 to-transparent"></div>
+
+  <div
+    class="group relative block aspect-[16/10] overflow-hidden border-b border-dark-green/10"
+  >
+    <img
+      src={projectImg}
+      alt={`${title} preview`}
+      class="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-103"
     />
+
+    <div class="absolute inset-0 bg-gradient-to-t from-dark-green/35 via-transparent to-transparent"></div>
   </div>
 
-  <!-- Image Preview with hover overlay -->
-  <div class="relative group rounded-lg overflow-hidden shadow">
-    <a
-      href={projectLink}
-      target="_blank"
-      class="block aspect-video w-full relative"
-    >
-      <!-- Image -->
-      <img
-        src={projectImg}
-        alt={`${title} preview`}
-        class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-      />
-
-      <!-- Overlay -->
-      <div
-        class="absolute inset-0 bg-dark-green/40 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition duration-300"
-      >
-        <div
-          class="text-ligth-accent font-semibold items-center text-sm bg-dark-green rounded-full px-6 py-2 flex gap-2 transition-all"
-        >
-          <span class="group-hover:text-accent">View project</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="32"
-            height="32"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#000000"
-            stroke-width="1"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="size-6 stroke-2 stroke-ligth-accent group-hover:stroke-accent"
-          >
-            <path
-              d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6"
-            ></path>
-            <path d="M11 13l9 -9"></path>
-            <path d="M15 4h5v5"></path>
-          </svg>
-        </div>
+  <div class="flex flex-1 flex-col p-6 sm:p-7">
+    <div class="flex items-start gap-4">
+      <div class="min-w-0 flex-1">
+        <h3 class="text-2xl font-bold leading-tight text-dark-green sm:text-[2rem]">
+          {title}
+        </h3>
       </div>
-    </a>
-  </div>
+    </div>
 
-  <!-- Description -->
-  <p class="text-sm text-ligth-green text-center">
-    {description}
-  </p>
+    <p class="mt-4 max-w-3xl text-base leading-relaxed text-ligth-green">
+      {description}
+    </p>
 
-  <!-- Tags -->
-  <div class="flex flex-wrap justify-center gap-2 text-xs font-semibold">
-    {
-      technologies.map((tech) => (
-        <span class="bg-accent text-dark-green px-2 py-0.5 rounded hover:rotate-4 shadow transition-all cursor-default">
-          {tech}
-        </span>
-      ))
-    }
+    <div class="mt-5 flex flex-wrap gap-2 text-xs font-semibold">
+      {
+        technologies.map((tech) => (
+          <span class="rounded-md border border-accent/35 bg-accent/15 px-2.5 py-1 text-dark-green shadow-sm transition-all hover:bg-accent/25 cursor-default">
+            {tech}
+          </span>
+        ))
+      }
+    </div>
+
+    <div class="mt-6 h-px w-full bg-dark-green/10"></div>
+
+    <div class="mt-auto flex items-center gap-3 pt-4">
+      <a
+        href={projectLink}
+        target="_blank"
+        class="inline-flex h-11 items-center gap-2 rounded-full bg-accent px-5 text-sm font-semibold text-ligth-accent transition-all duration-300 hover:bg-accent-hover hover:shadow-md hover:shadow-accent/20"
+      >
+        Live demo
+        <RedirectLinkIcon stroke="stroke-ligth-accent" className="size-4" />
+      </a>
+
+      <a
+        href={projectGithubLink}
+        target="_blank"
+        class="inline-flex h-11 items-center gap-2 rounded-full border border-accent/45 bg-accent/12 px-5 text-sm font-semibold text-accent-hover transition-all duration-300 hover:bg-accent/22"
+      >
+        <svg
+          width="256px"
+          height="250px"
+          viewBox="0 0 256 250"
+          class="size-4 fill-accent-hover"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="xMidYMid"
+          aria-hidden="true"
+        >
+          <g>
+            <path d="M128.00106,0 C57.3172926,0 0,57.3066942 0,128.00106 C0,184.555281 36.6761997,232.535542 87.534937,249.460899 C93.9320223,250.645779 96.280588,246.684165 96.280588,243.303333 C96.280588,240.251045 96.1618878,230.167899 96.106777,219.472176 C60.4967585,227.215235 52.9826207,204.369712 52.9826207,204.369712 C47.1599584,189.574598 38.770408,185.640538 38.770408,185.640538 C27.1568785,177.696113 39.6458206,177.859325 39.6458206,177.859325 C52.4993419,178.762293 59.267365,191.04987 59.267365,191.04987 C70.6837675,210.618423 89.2115753,204.961093 96.5158685,201.690482 C97.6647155,193.417512 100.981959,187.77078 104.642583,184.574357 C76.211799,181.33766 46.324819,170.362144 46.324819,121.315702 C46.324819,107.340889 51.3250588,95.9223682 59.5132437,86.9583937 C58.1842268,83.7344152 53.8029229,70.715562 60.7532354,53.0843636 C60.7532354,53.0843636 71.5019501,49.6441813 95.9626412,66.2049595 C106.172967,63.368876 117.123047,61.9465949 128.00106,61.8978432 C138.879073,61.9465949 149.837632,63.368876 160.067033,66.2049595 C184.49805,49.6441813 195.231926,53.0843636 195.231926,53.0843636 C202.199197,70.715562 197.815773,83.7344152 196.486756,86.9583937 C204.694018,95.9223682 209.660343,107.340889 209.660343,121.315702 C209.660343,170.478725 179.716133,181.303747 151.213281,184.472614 C155.80443,188.444828 159.895342,196.234518 159.895342,208.176593 C159.895342,225.303317 159.746968,239.087361 159.746968,243.303333 C159.746968,246.709601 162.05102,250.70089 168.53925,249.443941 C219.370432,232.499507 256,184.536204 256,128.00106 C256,57.3066942 198.691187,0 128.00106,0 Z"></path>
+          </g>
+        </svg>
+        Source
+      </a>
+    </div>
   </div>
-</div>
+</article>

@@ -2,11 +2,14 @@
 import { defineConfig } from 'astro/config';
 import devtoolsJson from 'vite-plugin-devtools-json';
 import tailwindcss from '@tailwindcss/vite';
+import sitemap from '@astrojs/sitemap';
 
 import preact from '@astrojs/preact';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://scueter.com',
+
   vite: {
     plugins: [tailwindcss(), devtoolsJson()],
     server: {
@@ -18,5 +21,5 @@ export default defineConfig({
     },
   },
 
-  integrations: [preact()]
+  integrations: [preact(), sitemap()]
 });

@@ -21,22 +21,17 @@ export const NavBar = ({ currentPath, children, headerTitle }: { currentPath: st
 
   return (
     <header
-      class={`w-full flex justify-center bg-ligth-accent fixed top-0 z-50 transition-all duration-300 ${scrolled ? "shadow-md" : ""
+      class={`w-full flex justify-center fixed top-0 z-50 transition-all duration-300 ${scrolled ? "shadow-md bg-ligth-accent/95 backdrop-blur-md" : "bg-ligth-accent"
         }`}
     >
-      <nav class="flex py-5 justify-between items-center w-full max-w-6xl px-6">
-        <div className='flex items-center md:gap-6 h-fit w-full sm:w-fit'>
+      {/* Desktop nav */}
+      <nav class="hidden sm:flex py-5 justify-between items-center w-full max-w-6xl px-6">
+        <div className='flex items-center md:gap-6 h-fit'>
           <LogoIcon />
-          <div className="min-h-12 flex items-center justify-center sm:block sm:w-fit w-full">
-            {currentPath !== '/' &&
-              <>
-                {children}
-                <p className="sm:hidden font-bricolage font-semibold text-dark-green text-xl">{headerTitle}</p>
-              </>}
-          </div>
+          {currentPath !== '/' && children}
         </div>
         <ul
-          class="hidden sm:flex justify-end items-center gap-6 font-bricolage text-ligth-green"
+          class="flex justify-end items-center gap-6 font-bricolage text-ligth-green"
         >
           <NavBarItem currentPath={currentPath} href="/" text="Home" />
           <NavBarItem currentPath={currentPath} href="/projects" text="Projects" />
@@ -44,17 +39,28 @@ export const NavBar = ({ currentPath, children, headerTitle }: { currentPath: st
           <NavBarItem currentPath={currentPath} href="/contact" text="Contact" />
 
           <a href="/SaidCueterResume.pdf" target='_blank'>
-            <li class="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-accent px-5 py-2.5 font-medium text-dark-green cursor-pointer">
+            <li class="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-accent px-5 py-2.5 font-medium text-ligth-accent cursor-pointer transition-all duration-300 hover:bg-accent-hover hover:shadow-md hover:shadow-accent/20">
               <span>Resume</span><div class="w-0 translate-x-[100%] pl-0 opacity-0 transition-all duration-300 group-hover:w-5 group-hover:translate-x-0 group-hover:pl-1 group-hover:opacity-100"><RightArrowIcon /></div>
             </li>
           </a>
         </ul>
+      </nav>
 
-        <button onClick={() => setToggleMenu(prev => !prev)} class='sm:hidden'>
+      {/* Mobile nav */}
+      <nav class="sm:hidden flex items-center justify-between w-full px-5 py-4">
+        <a href="/" class="shrink-0">
+          <LogoIcon />
+        </a>
+        <button
+          onClick={() => setToggleMenu(prev => !prev)}
+          class="p-2 -mr-2 rounded-lg active:bg-dark-green/10 transition-colors"
+          aria-label="Open menu"
+        >
           <MenuIcon />
         </button>
       </nav>
-      <SideMenu toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
+
+      <SideMenu toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} currentPath={currentPath} />
     </header>
   )
 }
